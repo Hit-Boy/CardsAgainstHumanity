@@ -71,10 +71,9 @@ public class Hand : MonoBehaviour
             float selectionYShift = 0;
             Card cardScript = handCards[i].GetComponent<Card>();
             // numbers are from shifts on selecting and hovering over of cards
-            if (handCards[i].GetComponent<Card>().isSelected) selectionYShift = 112.5f;  
-            else if (handCards[i].GetComponent<Card>().isHoveredOver) selectionYShift = 45f; // can be very buggy
+            if (cardScript.isSelected) selectionYShift = 112.5f;  
+            else if (cardScript.isHoveredOver) selectionYShift = 45f; // can be very buggy
             cardPositions.Add(startPosition + positionShift * (i + 1) + new Vector3(0f, selectionYShift, 0f));
-            Debug.Log(cardPositions[i]);
         }
         
     }
