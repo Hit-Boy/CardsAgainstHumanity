@@ -16,6 +16,8 @@ public class World : MonoBehaviour {
     [SerializeField] private GameObject hand;
     [SerializeField]
     private int maxExpiredCards = 3;
+    [SerializeField]
+    private int firstCardTime = 2;
 
     [SerializeField] private float cardCooldown = 3;
     
@@ -38,7 +40,7 @@ public class World : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
-        startingTime = Time.time - 8;
+        startingTime = Time.time - (10-firstCardTime);
         handScript = hand.GetComponent<Hand>();
         UpdateResourceTextValue();
         UpdateExpiredCardsNumber();
@@ -58,7 +60,6 @@ public class World : MonoBehaviour {
         }
     }
     
-
     public void UpdateResourceTextValue() {
         resourceTextValue = "Env: " + environment + "  Peo: " + people + "  Ene: " + energy + "  Mon: " + money;
         resourceText.text = resourceTextValue;

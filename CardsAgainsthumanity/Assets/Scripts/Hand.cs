@@ -30,6 +30,7 @@ public class Hand : MonoBehaviour
     public void DrawCard() {
         if (deckScript.deckCards.Count == 0) {
             worldScript.ActivateWinScreen();
+            return;
         }
 
         GameObject card = deckScript.deckCards[deckScript.deckCards.Count - 1];
@@ -72,7 +73,7 @@ public class Hand : MonoBehaviour
             Card cardScript = handCards[i].GetComponent<Card>();
             // numbers are from shifts on selecting and hovering over of cards
             if (cardScript.isSelected) selectionYShift = 112.5f;  
-            else if (cardScript.isHoveredOver) selectionYShift = 45f; // can be very buggy
+            else if (cardScript.isHoveredOver) selectionYShift = 45f; 
             cardPositions.Add(startPosition + positionShift * (i + 1) + new Vector3(0f, selectionYShift, 0f));
         }
         
