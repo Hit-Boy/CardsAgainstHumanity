@@ -12,6 +12,7 @@ public class Card : MonoBehaviour {
     //[SerializeField] private GameObject world;
     //[SerializeField] private GameObject hand;
     [SerializeField] private TMP_Text nameText;
+    [SerializeField] private TMP_Text timerText;
     private World worldScript;
     private Hand handScript;
     private float startLifeTime;
@@ -47,7 +48,7 @@ public class Card : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        CheckIfTimeExpired();
+        UpdateTimer();
     }
 
     private void SetName() {
@@ -56,6 +57,14 @@ public class Card : MonoBehaviour {
 
     public bool CheckIfTimeExpired() {
         return Time.time - startLifeTime >= maxLifeTime;
+    }
+    
+    private float RemainingTime() {
+        return Time.time - startLifeTime;
+    }
+
+    private void UpdateTimer() {
+        timerText.text = Mathf.Floor(maxLifeTime - RemainingTime()).ToString();
     }
 
     public void SetStartLifeTime(float time) {
@@ -95,6 +104,7 @@ public class Card : MonoBehaviour {
     }
 
     public void MakeFirstChoice() {
+        if (worldScript.isPaused) return;
         int index = -500;
         worldScript.AddToResources(firstEnvCon, firstPeoCon, firstEneCon, firstMonCon);
         
@@ -105,6 +115,7 @@ public class Card : MonoBehaviour {
     }
 
     public void MakeSecondChoice() {
+        if (worldScript.isPaused) return;
         int index = -500;
         worldScript.AddToResources(secondEnvCon, secondPeoCon, secondEneCon, secondMonCon);
         for (int i = 0; i < handScript.handCards.Count; i++) {
@@ -112,6 +123,4 @@ public class Card : MonoBehaviour {
         }
         handScript.DiscardCard(index);
     }
-
-    
 }

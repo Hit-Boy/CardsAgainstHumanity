@@ -13,6 +13,7 @@ public class World : MonoBehaviour {
     [SerializeField] private TMP_Text expiredCardsText;
     [SerializeField] private TMP_Text looseText;
     [SerializeField] private TMP_Text winText;
+    [SerializeField] private TMP_Text pauseText;
     [SerializeField] private GameObject hand;
     [SerializeField]
     private int maxExpiredCards = 3;
@@ -35,6 +36,7 @@ public class World : MonoBehaviour {
     private int time = 2022;
     private float startingTime;
     private float currentTime;
+    public bool isPaused = false;
     
     
     
@@ -89,4 +91,17 @@ public class World : MonoBehaviour {
     public void ActivateWinScreen() {
         winText.gameObject.SetActive(true);
     }
+    
+    public void ChangePauseState() {
+        if (isPaused) {
+            Time.timeScale = 1;
+            pauseText.text = "Pause";
+        }
+        else {
+            Time.timeScale = 0;
+            pauseText.text = "Unpause";
+        }
+        isPaused = !isPaused;
+    }
+    
 }
