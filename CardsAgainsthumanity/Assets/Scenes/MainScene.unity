@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -128,11 +128,21 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: 'The level of the sea rose by 2 meters, China needs your help to build
+        dams. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Dam projects
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
@@ -230,11 +240,32 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 815151306}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEneCon
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstMonCon
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstPeoCon
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEnvCon
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondPeoCon
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110095463100352, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &53652930 stripped
 RectTransform:
@@ -246,6 +277,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
@@ -373,6 +405,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &319061547 stripped
 RectTransform:
@@ -778,6 +811,7 @@ MonoBehaviour:
   winText: {fileID: 707979942}
   hand: {fileID: 1503035330}
   maxExpiredCards: 3
+  firstCardTime: 2
   cardCooldown: 3
   numberOfExpiredCards: 0
 --- !u!4 &815151308
@@ -935,11 +969,30 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: "With the increasing number of humans on the planet, experts are afraid
+        there won\u2019t be enough food to feed everyone. Do you want to create more
+        fields?  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 7.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 7.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Food crysis
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
@@ -1037,11 +1090,36 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 815151306}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEneCon
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEnvCon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstMonCon
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstPeoCon
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEnvCon
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondPeoCon
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110095463100352, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &863463076 stripped
 RectTransform:
@@ -1078,7 +1156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1121,11 +1198,37 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: 'There is a lack of wood around the world, do you give permission to
+        Brazil to cut down trees from the Amazonian forest? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 7.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Wood shortage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
@@ -1223,11 +1326,36 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 815151306}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEneCon
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEnvCon
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstMonCon
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstPeoCon
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEnvCon
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondPeoCon
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110095463100352, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &902636070 stripped
 RectTransform:
@@ -1528,11 +1656,37 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: 'A big earthquake happened in Italia. A nuclear plant has been damaged
+        will you help? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Rutherford's fear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 9.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 9.59
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
@@ -1630,11 +1784,36 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 815151306}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEnvCon
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstMonCon
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstPeoCon
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEneCon
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEnvCon
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondPeoCon
+      value: -15
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110095463100352, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &1540815923 stripped
 RectTransform:
@@ -1646,11 +1825,32 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: America wants to build new nuclear centrals. Do you want to invest?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Nuclear energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 10.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 10.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204826, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
@@ -1750,28 +1950,75 @@ PrefabInstance:
       objectReference: {fileID: 815151306}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: firstEneCon
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: firstEnvCon
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstMonCon
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstPeoCon
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEneCon
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEnvCon
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondPeoCon
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5429110095463100352, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!1001 &1691110934
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 1339854229}
     m_Modifications:
     - target: {fileID: 5429110093518673877, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: 'Poland has not enough energy. They only have coal to use as energy,
+        so they want to build coal plants. Do you agree? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110093998571441, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Poland's crysis
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSize
+      value: 11.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 11.28
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
@@ -1779,7 +2026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878611, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Pivot.x
@@ -1869,11 +2116,36 @@ PrefabInstance:
       propertyPath: world
       value: 
       objectReference: {fileID: 815151306}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEneCon
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstEnvCon
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstMonCon
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondEneCon
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondMonCon
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondPeoCon
+      value: -5
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110095463100352, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &1691110935 stripped
 RectTransform:
@@ -1961,7 +2233,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
