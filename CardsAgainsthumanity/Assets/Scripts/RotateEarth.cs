@@ -25,9 +25,7 @@ public class RotateEarth : MonoBehaviour
     void Update()
     {
         Dragging();
-
         Scrolling();
-
         ResetEarth();
     }
 
@@ -35,15 +33,15 @@ public class RotateEarth : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            float rotX = Input.GetAxis("Mouse X") * mouseDragSpeed * Time.deltaTime;
-            float rotY = Input.GetAxis("Mouse Y") * mouseDragSpeed * Time.deltaTime;
+            float rotX = Input.GetAxis("Mouse X") * mouseDragSpeed * Time.unscaledDeltaTime;
+            float rotY = Input.GetAxis("Mouse Y") * mouseDragSpeed * Time.unscaledDeltaTime;
 
             earthTf.RotateAround((Vector3.Dot(earthTf.up, Vector3.down) > 0) ? -earthTf.up : earthTf.up, -rotX); // Rotate around X axis
             earthTf.RotateAround(Vector3.right, rotY); // Rotate around Y axis
         }
         else
         {
-            earthTf.Rotate(0, rotationSpeed * Time.deltaTime, 0); //Rotate if player is not dragging
+            earthTf.Rotate(0, rotationSpeed * Time.unscaledDeltaTime, 0); //Rotate if player is not dragging
         }
     }
 
