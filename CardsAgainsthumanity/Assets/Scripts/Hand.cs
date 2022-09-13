@@ -7,14 +7,16 @@ public class Hand : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> handCards;
+    private List<Card> cardScripts;
     private List<Vector3> cardPositions;
     [SerializeField] private GameObject deck;
     private GameObject canvas;
     private World worldScript;
     private Deck deckScript;
-    private DiscardPile discardScript;
+    private DiscardPile discardScript;  
     void Start() {
         handCards = new List<GameObject>();
+        cardScripts = new List<Card>();
         canvas = GameObject.Find("Canvas");
         worldScript = GameObject.Find("WorldManager").GetComponent<World>();
         deckScript = deck.GetComponent<Deck>();
@@ -34,12 +36,17 @@ public class Hand : MonoBehaviour
         }
 
         GameObject card = deckScript.deckCards[deckScript.deckCards.Count - 1];
-        card.transform.SetParent(transform);
-        handCards.Add(card);
         deckScript.deckCards.RemoveAt(deckScript.deckCards.Count - 1);
-        Card cardScript = card.GetComponent<Card>();
-        cardScript.SetStartLifeTime(Time.time);
+        AddCard(card);
         UpdateCardPositions();
+    }
+
+    private void AddCard(GameObject card) { 
+        Card cardScript = card.GetComponent<Card>();
+        handCards.Add(card);
+        card.transform.SetParent(transform);
+        cardScripts.Add(cardScript);
+        cardScript.SetStartLifeTime(Time.time);
         card.SetActive(true);
     }
 
@@ -77,6 +84,16 @@ public class Hand : MonoBehaviour
             cardPositions.Add(startPosition + positionShift * (i + 1) + new Vector3(0f, selectionYShift, 0f));
         }
         
+    }
+
+    public bool CheckHoveringOfHandCards() {
+        bool isHoveringOverHandCards = false;
+        foreach (Card cardScript in cardScripts) {
+            if (cardScript.isSelected || cardScript.isHoveredOver)
+                isHoveringOverHandCards = true;
+        }
+
+        return isHoveringOverHandCards;
     }
 
     private void SetCardsIntoPositions() {

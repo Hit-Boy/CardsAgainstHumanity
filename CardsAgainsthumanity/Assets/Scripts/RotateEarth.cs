@@ -5,18 +5,26 @@ using UnityEngine;
 
 public class RotateEarth : MonoBehaviour
 {
+    [SerializeField]
     public int rotationSpeed = 5;
+    [SerializeField]
     public int mouseDragSpeed = 5;
+    [SerializeField]
     public int scrollSpeed = 5;
+    [SerializeField]
     public int minZoom = -30;
+    [SerializeField]
     public int maxZoom = 50;
 
+    [SerializeField] private GameObject hand;
+    private bool isDragging = false;
+    private Hand handScript;
     Transform earthTf;
     Vector3 resetRotation;
     Vector3 resetPosition;
 
-    void Start()
-    {
+    void Start() {
+        handScript = hand.GetComponent<Hand>();
         earthTf = GetComponent<Transform>();
         resetRotation = new Vector3(earthTf.rotation.x, earthTf.rotation.y, earthTf.rotation.z);
         resetPosition = new Vector3(earthTf.position.x, earthTf.position.y, earthTf.position.z);
@@ -31,18 +39,26 @@ public class RotateEarth : MonoBehaviour
 
     void Dragging()
     {
-        if (Input.GetMouseButton(1))
-        {
-            float rotX = Input.GetAxis("Mouse X") * mouseDragSpeed * Time.unscaledDeltaTime;
-            float rotY = Input.GetAxis("Mouse Y") * mouseDragSpeed * Time.unscaledDeltaTime;
+        if (Input.GetMouseButton(1) && !handScript.CheckHoveringOfHandCards()) {
+            isDragging = true;
+            float rotX = Input.GetAxis("Mouse X") * mouseDragSpeed * Time.deltaTime;
+            float rotY = Input.GetAxis("Mouse Y") * mouseDragSpeed * Time.deltaTime;
 
             earthTf.RotateAround((Vector3.Dot(earthTf.up, Vector3.down) > 0) ? -earthTf.up : earthTf.up, -rotX); // Rotate around X axis
             earthTf.RotateAround(Vector3.right, rotY); // Rotate around Y axis
         }
-        else
-        {
-            earthTf.Rotate(0, rotationSpeed * Time.unscaledDeltaTime, 0); //Rotate if player is not dragging
+        else {
+            isDragging = false;
+            earthTf.Rotate(0, rotationSpeed * Time.deltaTime, 0); //Rotate if player is not dragging
         }
+    }
+
+    public bool IsDragging() {
+        return isDragging;
+    }
+
+    public bool IsDragging() {
+        return isDragging;
     }
 
     void Scrolling()
