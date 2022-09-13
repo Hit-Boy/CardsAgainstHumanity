@@ -24,6 +24,15 @@ public class RotateEarth : MonoBehaviour
 
     void Update()
     {
+        Dragging();
+
+        Scrolling();
+
+        ResetEarth();
+    }
+
+    void Dragging()
+    {
         if (Input.GetMouseButton(1))
         {
             float rotX = Input.GetAxis("Mouse X") * mouseDragSpeed * Time.deltaTime;
@@ -36,7 +45,10 @@ public class RotateEarth : MonoBehaviour
         {
             earthTf.Rotate(0, rotationSpeed * Time.deltaTime, 0); //Rotate if player is not dragging
         }
+    }
 
+    void Scrolling()
+    {
         //Scroll by turning mousewheel
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && earthTf.position.z > minZoom) // forward
         {
@@ -46,7 +58,10 @@ public class RotateEarth : MonoBehaviour
         {
             earthTf.position += new Vector3(0, 0, scrollSpeed);
         }
+    }
 
+    private void ResetEarth()
+    {
         //Reset rotation and position to initial values
         if (Input.GetKey(KeyCode.Space))
         {
