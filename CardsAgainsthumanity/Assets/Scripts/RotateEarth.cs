@@ -16,7 +16,6 @@ public class RotateEarth : MonoBehaviour
     [SerializeField]
     public int maxZoom = 50;
 
-    [SerializeField] private GameObject hand;
     private bool isDragging = false;
     private Hand handScript;
     Transform earthTf;
@@ -24,7 +23,7 @@ public class RotateEarth : MonoBehaviour
     Vector3 resetPosition;
 
     void Start() {
-        handScript = hand.GetComponent<Hand>();
+        handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         earthTf = GetComponent<Transform>();
         resetRotation = new Vector3(earthTf.rotation.x, earthTf.rotation.y, earthTf.rotation.z);
         resetPosition = new Vector3(earthTf.position.x, earthTf.position.y, earthTf.position.z);
@@ -51,10 +50,6 @@ public class RotateEarth : MonoBehaviour
             isDragging = false;
             earthTf.Rotate(0, rotationSpeed * Time.deltaTime, 0); //Rotate if player is not dragging
         }
-    }
-
-    public bool IsDragging() {
-        return isDragging;
     }
 
     public bool IsDragging() {
