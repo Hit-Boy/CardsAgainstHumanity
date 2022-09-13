@@ -15,6 +15,7 @@ public class Card : MonoBehaviour {
     [SerializeField] private TMP_Text timerText;
     private World worldScript;
     private Hand handScript;
+    private RotateEarth earthScript;
     private float startLifeTime;
     public bool isSelected;
     public bool isHoveredOver;
@@ -41,6 +42,7 @@ public class Card : MonoBehaviour {
 
 // Start is called before the first frame update
     void Start() {
+        earthScript = GameObject.FindWithTag("Earth").GetComponent<RotateEarth>();
         worldScript = GameObject.FindWithTag("World").GetComponent<World>();
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         SetName();
@@ -72,6 +74,7 @@ public class Card : MonoBehaviour {
     }
 
     public void Scale() {
+        if (earthScript.IsDragging()) return;
         if (isSelected) return;
         Debug.Log(transform.position);
         transform.localScale *= 1.5f;
@@ -80,6 +83,7 @@ public class Card : MonoBehaviour {
     }
 
     public void ScaleBack() {
+        if (earthScript.IsDragging()) return;
         if(isSelected) return;
         transform.localScale /= 1.5f;
         transform.position -= new Vector3(0f, 45f, 0f);
@@ -87,6 +91,7 @@ public class Card : MonoBehaviour {
     }
 
     public void SelectCard() {
+        if (earthScript.IsDragging()) return;
         if (isSelected == false) {
             transform.localScale *= 1.5f;
             transform.position += new Vector3(0f, 67.5f, 0f);

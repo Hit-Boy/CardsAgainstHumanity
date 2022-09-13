@@ -8,6 +8,7 @@ TagManager:
   - DiscardPile
   - Hand
   - World
+  - Earth
   layers:
   - Default
   - TransparentFX
