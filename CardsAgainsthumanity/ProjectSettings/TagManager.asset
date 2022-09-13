@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Earth
+  - Deck
+  - DiscardPile
+  - Hand
+  - World
   layers:
   - Default
   - TransparentFX
