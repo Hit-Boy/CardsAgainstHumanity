@@ -9,6 +9,11 @@ TagManager:
   - Hand
   - World
   - Earth
+  - TurbineCenter
+  - Nuclear
+  - Turbine
+  - Rocket
+  - WaterPlant
   layers:
   - Default
   - TransparentFX

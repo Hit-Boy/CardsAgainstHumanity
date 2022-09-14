@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class AlignToEarthRotation : MonoBehaviour
 {
-    float earthRadius = 5;
-    float objectRadius = 5;
+    float earthRadius = 44;
+    float objectRadius = 0;
 
     void Start()
     {
-        //float earthRadius = GameObject.FindGameObjectWithTag("Earth").GetComponent<MeshFilter>().mesh.bounds.extents.x;
-        //float objectRadius = GetComponent<MeshFilter>().mesh.bounds.extents.x;
+        switch (tag)
+        {
+            case "Turbine":
+                objectRadius = 5;
+                break;
+            case "Nuclear":
+                objectRadius = 4;
+                break;
+            case "Rocket":
+                objectRadius = 1;
+                break;
+            case "WaterPlant":
+                objectRadius = 6;
+                break;
+        }
 
         Transform objectTransform = GetComponent<Transform>();
         Transform earthTf = GameObject.FindGameObjectWithTag("Earth").transform;
@@ -18,7 +31,7 @@ public class AlignToEarthRotation : MonoBehaviour
         objectTransform.rotation = Quaternion.LookRotation(delta, Vector3.up);
         objectTransform.Rotate(90, 0, 0);
 
-        float dist = (objectTransform.position - earthTf.position).magnitude - earthRadius / 2 - objectRadius / 2;
+        float dist = (objectTransform.position - earthTf.position).magnitude - (earthRadius / 2 + objectRadius / 2);
         objectTransform.position -= Vector3.back * dist;
     }
 }
