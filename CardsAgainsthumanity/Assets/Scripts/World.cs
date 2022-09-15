@@ -42,7 +42,9 @@ public class World : MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
-        startingTime = Time.time - (10-firstCardTime);
+        startingTime = Time.time + firstCardTime - cardCooldown;
+        Debug.Log(Time.time);
+        Debug.Log(Time.time - startingTime);
         handScript = hand.GetComponent<Hand>();
         UpdateResourceTextValue();
         UpdateExpiredCardsNumber();

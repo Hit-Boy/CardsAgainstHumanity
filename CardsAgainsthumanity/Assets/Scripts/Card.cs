@@ -142,6 +142,7 @@ public class Card : MonoBehaviour {
         for (int i = 0; i < handScript.handCards.Count; i++) {
             if (gameObject == handScript.handCards[i]) index = i;
         }
+        handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
     }
 
@@ -152,6 +153,7 @@ public class Card : MonoBehaviour {
         for (int i = 0; i < handScript.handCards.Count; i++) {
             if (gameObject == handScript.handCards[i]) index = i;
         }
+        handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
     }
 }
