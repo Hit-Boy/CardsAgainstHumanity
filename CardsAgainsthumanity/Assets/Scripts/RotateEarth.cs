@@ -22,7 +22,8 @@ public class RotateEarth : MonoBehaviour
     Vector3 resetRotation;
     Vector3 resetPosition;
 
-    void Start() {
+    void Start()
+    {
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         earthTf = GetComponent<Transform>();
         resetRotation = new Vector3(earthTf.rotation.x, earthTf.rotation.y, earthTf.rotation.z);
@@ -38,7 +39,8 @@ public class RotateEarth : MonoBehaviour
 
     void Dragging()
     {
-        if (Input.GetMouseButton(1) && !handScript.CheckHoveringOfHandCards()) {
+        if (Input.GetMouseButton(1) && !handScript.CheckHoveringOfHandCards())
+        {
             isDragging = true;
             float rotX = Input.GetAxis("Mouse X") * mouseDragSpeed * Time.deltaTime;
             float rotY = Input.GetAxis("Mouse Y") * mouseDragSpeed * Time.deltaTime;
@@ -46,13 +48,15 @@ public class RotateEarth : MonoBehaviour
             earthTf.RotateAround((Vector3.Dot(earthTf.up, Vector3.down) > 0) ? -earthTf.up : earthTf.up, -rotX); // Rotate around X axis
             earthTf.RotateAround(Vector3.right, rotY); // Rotate around Y axis
         }
-        else {
+        else
+        {
             isDragging = false;
             earthTf.Rotate(0, rotationSpeed * Time.deltaTime, 0); //Rotate if player is not dragging
         }
     }
 
-    public bool IsDragging() {
+    public bool IsDragging()
+    {
         return isDragging;
     }
 
