@@ -12,7 +12,7 @@ public class RotateEarth : MonoBehaviour
     [SerializeField]
     public int scrollSpeed = 5;
     [SerializeField]
-    public int minZoom = -35;
+    public int minZoom = -45;
     [SerializeField]
     public int maxZoom = 50;
 
