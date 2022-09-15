@@ -19,6 +19,9 @@ public class Card : MonoBehaviour {
     private float startLifeTime;
     public bool isSelected;
     public bool isHoveredOver;
+    public Vector3 cardPosition;
+    public int cardHandPosition;
+    private Vector3 centerPosition;
 
     [Header("FirstChoiceConsequences(Yes)")] 
     [SerializeField]
@@ -45,6 +48,8 @@ public class Card : MonoBehaviour {
         earthScript = GameObject.FindWithTag("Earth").GetComponent<RotateEarth>();
         worldScript = GameObject.FindWithTag("World").GetComponent<World>();
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
+        Rect canvasRect = GameObject.FindWithTag("Canvas").GetComponent<RectTransform>().rect;
+        centerPosition = new Vector3(canvasRect.width/2, canvasRect.height/3, 0);
         SetName();
     }
 
@@ -66,46 +71,67 @@ public class Card : MonoBehaviour {
     }
 
     private void UpdateTimer() {
-        timerText.text = Mathf.Floor(maxLifeTime - RemainingTime()).ToString();
+        timerText.text = Mathf.Ceil(maxLifeTime - RemainingTime()).ToString();
     }
 
     public void SetStartLifeTime(float time) {
         startLifeTime = time;
     }
 
-    public void Scale() {
+    public void ScaleToHoverSize() {
         if (earthScript.IsDragging()) return;
         if (isSelected) return;
-        Debug.Log(transform.position);
-        transform.localScale *= 1.5f;
-        transform.position += new Vector3(0f, 45f, 0f);
+        transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
+        transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+        //transform.GetSiblingIndex();
+        transform.SetSiblingIndex(10);
         isHoveredOver = true;
     }
 
-    public void ScaleBack() {
+    public void ScaleToNormalSize() {
         if (earthScript.IsDragging()) return;
         if(isSelected) return;
-        transform.localScale /= 1.5f;
-        transform.position -= new Vector3(0f, 45f, 0f);
+        transform.localScale = new Vector3(1f,1f, 1f);
+        transform.position = cardPosition;
+        transform.SetSiblingIndex(cardHandPosition);
         isHoveredOver = false;
     }
 
     public void SelectCard() {
         if (earthScript.IsDragging()) return;
         if (isSelected == false) {
-            transform.localScale *= 1.5f;
-            transform.position += new Vector3(0f, 67.5f, 0f);
-            transform.Find("FirstChoice").gameObject.SetActive(true);
-            transform.Find("SecondChoice").gameObject.SetActive(true);
+            if (handScript.numberOfSelectedCards > 0) return;
+            transform.localScale = new Vector3(2f,2f, 2f);
+            transform.position = centerPosition;
+            //transform.position = cardPosition + new Vector3(0f, 225f, 0f);
+            EnableButtons(true);
             isSelected = true;
+            handScript.numberOfSelectedCards++;
         }
         else {
-            transform.localScale /= 1.5f;
-            transform.position -= new Vector3(0f, 67.5f, 0f);
-            transform.Find("FirstChoice").gameObject.SetActive(false);
-            transform.Find("SecondChoice").gameObject.SetActive(false);
+            transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
+            transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+            EnableButtons(false);
             isSelected = false;
+            handScript.numberOfSelectedCards--;
         }
+    }
+
+    public void SetPosition(Vector3 pos) {
+        cardPosition = pos;
+        if (isSelected) 
+            transform.position = centerPosition;
+        else {
+            if(isHoveredOver)
+                transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+            else 
+                transform.position = cardPosition;
+        }
+    }
+
+    private void EnableButtons(bool activity) {
+        transform.Find("FirstChoice").gameObject.SetActive(activity);
+        transform.Find("SecondChoice").gameObject.SetActive(activity);
     }
 
     public void MakeFirstChoice() {

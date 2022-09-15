@@ -9,6 +9,7 @@ TagManager:
   - Hand
   - World
   - Earth
+  - Canvas
   layers:
   - Default
   - TransparentFX
