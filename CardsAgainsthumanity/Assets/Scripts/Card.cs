@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Sockets;
+using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using Palmmedia.ReportGenerator.Core;
 using TMPro;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class Card : MonoBehaviour {
     
@@ -13,13 +16,19 @@ public class Card : MonoBehaviour {
     //[SerializeField] private GameObject hand;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private float cardMoveSpeed = 150f;
+    [SerializeField] private float HoverMoveSpeed = 50f;
+    [SerializeField] private float SelectMoveSpeed = 80f;
+    
     private World worldScript;
     private Hand handScript;
     private RotateEarth earthScript;
     private float startLifeTime;
     public bool isSelected;
     public bool isHoveredOver;
+    private bool isMovingToCardPosition = true;
     public Vector3 cardPosition;
+    private Vector3 desiredCardPosition;
     public int cardHandPosition;
     private Vector3 centerPosition;
 
@@ -56,6 +65,11 @@ public class Card : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         UpdateTimer();
+        MoveToCardPosition();
+        Debug.Log(desiredCardPosition);
+        Debug.Log(transform.position);
+        Debug.Log(isMovingToCardPosition);
+        
     }
 
     private void SetName() {
@@ -79,30 +93,34 @@ public class Card : MonoBehaviour {
     }
 
     public void ScaleToHoverSize() {
+        if (isMovingToCardPosition) return;
         if (earthScript.IsDragging()) return;
         if (isSelected) return;
         transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
-        transform.position = cardPosition + new Vector3(0f, 90f, 0f);
-        //transform.GetSiblingIndex();
+        //transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+        desiredCardPosition = cardPosition + new Vector3(0f, 90f, 0f);
         transform.SetSiblingIndex(10);
         isHoveredOver = true;
     }
 
     public void ScaleToNormalSize() {
+        if (isMovingToCardPosition) return;
         if (earthScript.IsDragging()) return;
         if(isSelected) return;
         transform.localScale = new Vector3(1f,1f, 1f);
-        transform.position = cardPosition;
+        desiredCardPosition = cardPosition;
         transform.SetSiblingIndex(cardHandPosition);
         isHoveredOver = false;
     }
 
     public void SelectCard() {
+        if (isMovingToCardPosition) return;
         if (earthScript.IsDragging()) return;
+        transform.SetSiblingIndex(20);
         if (isSelected == false) {
             if (handScript.numberOfSelectedCards > 0) return;
             transform.localScale = new Vector3(2f,2f, 2f);
-            transform.position = centerPosition;
+            desiredCardPosition = centerPosition;
             //transform.position = cardPosition + new Vector3(0f, 225f, 0f);
             EnableButtons(true);
             isSelected = true;
@@ -110,23 +128,29 @@ public class Card : MonoBehaviour {
         }
         else {
             transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
-            transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+            //transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+            desiredCardPosition = cardPosition + new Vector3(0f, 90f, 0f);
+            transform.SetSiblingIndex(cardHandPosition);
             EnableButtons(false);
             isSelected = false;
             handScript.numberOfSelectedCards--;
         }
     }
 
-    public void SetPosition(Vector3 pos) {
-        cardPosition = pos;
+    public void SetDesiredPosition(Vector3 pos) {
+        SetCardPosition(pos);
         if (isSelected) 
-            transform.position = centerPosition;
+            desiredCardPosition = centerPosition;
         else {
             if(isHoveredOver)
-                transform.position = cardPosition + new Vector3(0f, 90f, 0f);
+                desiredCardPosition = cardPosition + new Vector3(0f, 90f, 0f);
             else 
-                transform.position = cardPosition;
+                desiredCardPosition = cardPosition;
         }
+    }
+
+    public void SetCardPosition(Vector3 pos) {
+        cardPosition = pos;
     }
 
     private void EnableButtons(bool activity) {
@@ -156,4 +180,31 @@ public class Card : MonoBehaviour {
         handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
     }
+
+    private void MoveToCardPosition() {
+        if (transform.position == desiredCardPosition) return;
+        float MoveSpeed = cardMoveSpeed;
+        if (isSelected)
+            MoveSpeed = SelectMoveSpeed;
+        if (isHoveredOver)
+            MoveSpeed = HoverMoveSpeed;
+            
+        
+        
+        //transform.position = desiredCardPosition;
+        //isMovingToCardPosition = false;
+        Vector3 moveVector = desiredCardPosition - transform.position;
+        //Debug.Log(moveVector.magnitude < cardMoveSpeed * Time.unscaledDeltaTime);
+        if (moveVector.magnitude < MoveSpeed * Time.unscaledDeltaTime) {
+            transform.position = desiredCardPosition;
+            isMovingToCardPosition = false;
+            return;
+        }
+
+        transform.position += moveVector.normalized * MoveSpeed * Time.unscaledDeltaTime;
+        
+           
+    }
+
+
 }

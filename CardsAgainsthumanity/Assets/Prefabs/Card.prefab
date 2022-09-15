@@ -652,12 +652,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80dab7dac39caf46b84f083e4cc8e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLifeTime: 10
+  maxLifeTime: 30
   nameText: {fileID: 5429110094093204825}
   timerText: {fileID: 5597024741377768626}
+  cardMoveSpeed: 700
+  HoverMoveSpeed: 700
+  SelectMoveSpeed: 800
   isSelected: 0
   isHoveredOver: 0
   cardPosition: {x: 0, y: 0, z: 0}
+  cardHandPosition: 0
   firstEnvCon: 0
   firstPeoCon: 0
   firstEneCon: 0

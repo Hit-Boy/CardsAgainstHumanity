@@ -675,6 +675,10 @@ PrefabInstance:
       propertyPath: secondPeoCon
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: cardMoveSpeed
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
 --- !u!224 &579674380 stripped
@@ -1049,7 +1053,7 @@ MonoBehaviour:
   hand: {fileID: 1503035330}
   maxExpiredCards: 3
   firstCardTime: 2
-  cardCooldown: 3
+  cardCooldown: 10
   numberOfExpiredCards: 0
   isPaused: 0
 --- !u!4 &815151308
