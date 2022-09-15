@@ -26,6 +26,12 @@ public class AlignToEarthRotation : MonoBehaviour
             case "Crane":
                 objectRadius = 5;
                 break;
+            case "Tree1":
+                objectRadius = 6;
+                break;
+            case "House1":
+                objectRadius = 6;
+                break;
         }
 
         Transform objectTransform = GetComponent<Transform>();

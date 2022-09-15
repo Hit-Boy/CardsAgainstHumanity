@@ -15,6 +15,9 @@ TagManager:
   - Rocket
   - WaterPlant
   - Crane
+  - Canvas
+  - Tree1
+  - House1
   layers:
   - Default
   - TransparentFX
