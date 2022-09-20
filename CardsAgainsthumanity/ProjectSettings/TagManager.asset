@@ -18,6 +18,8 @@ TagManager:
   - Canvas
   - Tree1
   - House1
+  - Tree2
+  - City
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ public class RotateTurbines : MonoBehaviour
 {
     GameObject[] turbineCenters;
     [SerializeField]
-    public int rotationSpeed = 5;
+    public int rotationSpeed = 10;
 
     void Start()
     {

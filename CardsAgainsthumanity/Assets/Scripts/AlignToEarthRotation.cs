@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlignToEarthRotation : MonoBehaviour
 {
-    float earthRadius = 16;
+    float earthRadius = 28;
     float objectHeigt = 0;
 
     void Start()
@@ -27,9 +27,15 @@ public class AlignToEarthRotation : MonoBehaviour
                 objectHeigt = 5;
                 break;
             case "Tree1":
-                objectHeigt = 5;
+                objectHeigt = 4;
                 break;
             case "House1":
+                objectHeigt = 4;
+                break;
+            case "Tree2":
+                objectHeigt = 4;
+                break;
+            case "City":
                 objectHeigt = 5;
                 break;
         }
@@ -41,7 +47,7 @@ public class AlignToEarthRotation : MonoBehaviour
         objectTransform.rotation = Quaternion.LookRotation(delta.normalized, Vector3.up);
         objectTransform.Rotate(90, 0, 0);
 
-        float dist = delta.magnitude - (earthRadius + objectHeigt / 2);
+        float dist = delta.magnitude - earthRadius - objectHeigt / 2;
         objectTransform.position -= objectTransform.up * dist;
     }
 }
