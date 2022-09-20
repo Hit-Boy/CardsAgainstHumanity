@@ -15,28 +15,28 @@ public class AlignToEarthRotation : MonoBehaviour
                 objectHeigt = 4;
                 break;
             case "Nuclear":
-                objectHeigt = 4;
+                objectHeigt = 4.5f;
                 break;
             case "Rocket":
-                objectHeigt = 1;
+                objectHeigt = 4;
                 break;
             case "WaterPlant":
-                objectHeigt = 5;
+                objectHeigt = 4.8f;
                 break;
             case "Crane":
-                objectHeigt = 5;
+                objectHeigt = 5.2f;
                 break;
             case "Tree1":
-                objectHeigt = 4;
+                objectHeigt = 4.5f;
                 break;
             case "House1":
-                objectHeigt = 4;
+                objectHeigt = 4.6f;
                 break;
             case "Tree2":
-                objectHeigt = 4;
+                objectHeigt = 5f;
                 break;
             case "City":
-                objectHeigt = 5;
+                objectHeigt = 4;
                 break;
         }
 
