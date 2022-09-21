@@ -27585,7 +27585,7 @@ PrefabInstance:
       objectReference: {fileID: 1576228164}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: firstNews
-      value: suck a dick
+      value: heyo
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: timerText
@@ -35492,7 +35492,7 @@ PrefabInstance:
       objectReference: {fileID: 1591811286}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: firstNews
-      value: no eat ass
+      value: no other way around
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: timerText
@@ -53943,7 +53943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello you start a fucking game.
+  m_text: Hello you do start this great game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

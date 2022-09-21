@@ -196,4 +196,9 @@ public class RotateEarth : MonoBehaviour
             }
         }
     }
+
+    void CardEffectTurbine()
+    {
+
+    }
 }
