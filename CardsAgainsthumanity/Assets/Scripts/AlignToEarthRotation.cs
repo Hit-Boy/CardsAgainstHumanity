@@ -14,6 +14,14 @@ public class AlignToEarthRotation : MonoBehaviour
             case "Turbine":
                 objectHeigt = 4;
                 break;
+            case "NuclearUS":
+                objectHeigt = 4.5f;
+                for (int i = transform.childCount - 1; i >= 0; --i)
+                {
+                    Transform child = transform.GetChild(i);
+                    child.GetComponent<MeshRenderer>().enabled = false;
+                }
+                break;
             case "Nuclear":
                 objectHeigt = 4.5f;
                 break;
@@ -32,8 +40,9 @@ public class AlignToEarthRotation : MonoBehaviour
             case "House1":
                 objectHeigt = 4.6f;
                 break;
+            case "TreeAmazon":
             case "Tree2":
-                objectHeigt = 5f;
+                objectHeigt = 4.2f;
                 break;
             case "City":
                 objectHeigt = 4;

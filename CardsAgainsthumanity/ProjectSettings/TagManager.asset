@@ -20,6 +20,11 @@ TagManager:
   - House1
   - Tree2
   - City
+  - DryEarth
+  - WetEarth
+  - NuclearUS
+  - Farm
+  - TreeAmazon
   layers:
   - Default
   - TransparentFX

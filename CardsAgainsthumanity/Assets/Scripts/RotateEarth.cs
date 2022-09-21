@@ -16,25 +16,58 @@ public class RotateEarth : MonoBehaviour
     [SerializeField]
     public int maxZoom = 50;
 
+    public GameObject wetEarth;
+    public GameObject dryEarth;
+    public GameObject normalEarth;
+
     private bool isDragging = false;
     private Hand handScript;
     Transform earthTf;
-    Vector3 resetRotation;
-    Vector3 resetPosition;
 
     void Start()
     {
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         earthTf = GetComponent<Transform>();
-        resetRotation = new Vector3(earthTf.rotation.x, earthTf.rotation.y, earthTf.rotation.z);
-        resetPosition = new Vector3(earthTf.position.x, earthTf.position.y, earthTf.position.z);
     }
 
     void Update()
     {
         Dragging();
         Scrolling();
-        ResetEarth();
+        Debug();
+    }
+
+    void Debug()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            SwitchEarthModel(wetEarth, "Earth");
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SwitchEarthModel(dryEarth, "WetEarth");
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            SwitchEarthModel(wetEarth, "DryEarth");
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            SwitchEarthModel(normalEarth, "WetEarth");
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            CardEffectUs();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            CardEffectAmazon();
+        }
     }
 
     void Dragging()
@@ -73,13 +106,94 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    private void ResetEarth()
+
+
+
+    void SwitchEarthModel(GameObject newEarthModel, string oldEarthModelTag)
     {
-        //Reset rotation and position to initial values
-        if (Input.GetKey(KeyCode.Space))
+        GameObject oldEarth = GameObject.FindWithTag(oldEarthModelTag);
+        GameObject newEarth = Instantiate(newEarthModel, oldEarth.transform.position, oldEarth.transform.rotation);
+        for (int i = oldEarth.transform.childCount - 1; i >= 0; --i)
         {
-            earthTf.rotation = Quaternion.Euler(resetRotation);
-            earthTf.position = resetPosition;
+            Transform child = oldEarth.transform.GetChild(i);
+            if (child.name.Contains("Mountains") || child.name.Contains("Land"))
+            {
+                continue;
+            }
+            child.SetParent(newEarth.transform, false);
+        }
+        Destroy(oldEarth);
+    }
+
+    void CardEffectAmazon()
+    {
+        foreach (GameObject amazonTree in GameObject.FindGameObjectsWithTag("TreeAmazon"))
+        {
+            for (int i = amazonTree.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = amazonTree.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
+    }
+
+    void CardEffectUs()
+    {
+        foreach (GameObject usPlant in GameObject.FindGameObjectsWithTag("NuclearUS"))
+        {
+            for (int i = usPlant.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = usPlant.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
+
+    void CardEffectChina()
+    {
+        foreach (GameObject damChina in GameObject.FindGameObjectsWithTag("DamChina"))
+        {
+            for (int i = damChina.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = damChina.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
+
+    void CardEffectRandomNuclear()
+    {
+        foreach (GameObject nuclearPlant in GameObject.FindGameObjectsWithTag("RandomNuclear"))
+        {
+            for (int i = nuclearPlant.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = nuclearPlant.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
+
+    void CardEffectFarms()
+    {
+        foreach (GameObject farm in GameObject.FindGameObjectsWithTag("RandomFarm"))
+        {
+            for (int i = farm.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = farm.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+    }
+
+    void CardEffectItaly()
+    {
+        foreach (GameObject crane in GameObject.FindGameObjectsWithTag("ItalyCrane"))
+        {
+            for (int i = crane.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = crane.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
         }
     }
 }
