@@ -9,6 +9,7 @@ public class SliderScript : MonoBehaviour {
     void Start()
     {
         slider = gameObject.GetComponent<Slider>();
+        SetValue(50);
         slider.maxValue = 100;
     }
 
@@ -18,7 +19,9 @@ public class SliderScript : MonoBehaviour {
     }
 
     public void SetValue(int passedValue) {
+        
         slider.value = passedValue;
     }
+    
 
 }

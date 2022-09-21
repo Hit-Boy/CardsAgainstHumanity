@@ -48,9 +48,7 @@ public class World : MonoBehaviour {
     private List<int> moneyThreshold;
     [SerializeField]
     private List<string> moneyNews;
-    
-    
-    
+
     private Hand handScript;
     private TMP_Text newsText;
     private string resourceTextValue;
@@ -69,8 +67,6 @@ public class World : MonoBehaviour {
 
         newsText = GameObject.FindWithTag("NewsText").GetComponent<TMP_Text>();
         startingTime = Time.time + firstCardTime - cardCooldown;
-        Debug.Log(Time.time);
-        Debug.Log(Time.time - startingTime);
         handScript = hand.GetComponent<Hand>();
         UpdateResourceTextValue();
         UpdateExpiredCardsNumber();

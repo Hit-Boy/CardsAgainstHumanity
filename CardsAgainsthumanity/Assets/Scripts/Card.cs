@@ -70,10 +70,6 @@ public class Card : MonoBehaviour {
     void Update() {
         UpdateTimer();
         MoveToCardPosition();
-        Debug.Log(desiredCardPosition);
-        Debug.Log(transform.position);
-        Debug.Log(isMovingToCardPosition);
-        
     }
 
     private void SetName() {
