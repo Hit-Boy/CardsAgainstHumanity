@@ -23,6 +23,7 @@ public class Card : MonoBehaviour {
     private World worldScript;
     private Hand handScript;
     private RotateEarth earthScript;
+    private TMP_Text newsText;
     private float startLifeTime;
     public bool isSelected;
     public bool isHoveredOver;
@@ -41,6 +42,8 @@ public class Card : MonoBehaviour {
     private int firstEneCon;
     [SerializeField]
     private int firstMonCon;
+    [SerializeField]
+    private string firstNews;
     
     [Header("SecondChoiceConsequences(No)")] 
     [SerializeField]
@@ -51,12 +54,14 @@ public class Card : MonoBehaviour {
     private int secondEneCon;
     [SerializeField]
     private int secondMonCon;
-
+    [SerializeField]
+    private string secondNews;
 // Start is called before the first frame update
     void Start() {
         earthScript = GameObject.FindWithTag("Earth").GetComponent<RotateEarth>();
         worldScript = GameObject.FindWithTag("World").GetComponent<World>();
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
+        newsText = GameObject.FindWithTag("NewsText").GetComponent<TMP_Text>();
         Rect canvasRect = GameObject.FindWithTag("Canvas").GetComponent<RectTransform>().rect;
         centerPosition = new Vector3(canvasRect.width/2, canvasRect.height/3, 0);
         SetName();
@@ -104,7 +109,7 @@ public class Card : MonoBehaviour {
     }
 
     public void ScaleToNormalSize() {
-        if (isMovingToCardPosition) return;
+        // if (isMovingToCardPosition) return;
         if (earthScript.IsDragging()) return;
         if(isSelected) return;
         transform.localScale = new Vector3(1f,1f, 1f);
@@ -168,6 +173,7 @@ public class Card : MonoBehaviour {
         }
         handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
+        PostNews(firstNews);
     }
 
     public void MakeSecondChoice() {
@@ -179,6 +185,12 @@ public class Card : MonoBehaviour {
         }
         handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
+        PostNews(secondNews);
+    }
+
+    private void PostNews(string news) {
+        if(news == "") return;
+        newsText.text = news + "\n" + newsText.text;
     }
 
     private void MoveToCardPosition() {
@@ -187,7 +199,7 @@ public class Card : MonoBehaviour {
         if (isSelected)
             MoveSpeed = SelectMoveSpeed;
         if (isHoveredOver)
-            MoveSpeed = HoverMoveSpeed;
+            MoveSpeed = SelectMoveSpeed;
             
         
         
@@ -202,7 +214,7 @@ public class Card : MonoBehaviour {
         }
 
         transform.position += moveVector.normalized * MoveSpeed * Time.unscaledDeltaTime;
-        
+        isMovingToCardPosition = true;
            
     }
 

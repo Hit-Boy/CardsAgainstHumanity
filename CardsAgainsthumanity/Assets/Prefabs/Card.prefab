@@ -656,8 +656,8 @@ MonoBehaviour:
   nameText: {fileID: 5429110094093204825}
   timerText: {fileID: 5597024741377768626}
   cardMoveSpeed: 700
-  HoverMoveSpeed: 700
-  SelectMoveSpeed: 800
+  HoverMoveSpeed: 1000
+  SelectMoveSpeed: 1000
   isSelected: 0
   isHoveredOver: 0
   cardPosition: {x: 0, y: 0, z: 0}

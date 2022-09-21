@@ -25,6 +25,7 @@ TagManager:
   - NuclearUS
   - Farm
   - TreeAmazon
+  - NewsText
   layers:
   - Default
   - TransparentFX
