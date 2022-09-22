@@ -54,4 +54,10 @@ public class Deck : MonoBehaviour {
 
         return returnList;
     }
+
+    public void AddCard(GameObject card) {
+        card.transform.parent = gameObject.transform;
+        deckCards = GetDeckCards();
+        ShuffleDeck();
+    }
 }

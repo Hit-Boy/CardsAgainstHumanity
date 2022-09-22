@@ -44,7 +44,7 @@ public class Hand : MonoBehaviour
         deckScript.deckCards.RemoveAt(deckScript.deckCards.Count - 1);
         AddCard(card);
         UpdateCardPositions();
-        card.transform.position = new Vector3(2000, UnityEngine.Random.Range(0f, 1000f), 0);
+        card.transform.position = new Vector3(2000, 200, 0);
     }
 
     private void AddCard(GameObject card) { 

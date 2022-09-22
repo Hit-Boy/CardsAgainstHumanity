@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour
     [SerializeField] private float HoverMoveSpeed = 50f;
     [SerializeField] private float SelectMoveSpeed = 80f;
 
+    private Deck deckScript;
     private World worldScript;
     private Hand handScript;
     private RotateEarth earthScript;
@@ -44,6 +46,8 @@ public class Card : MonoBehaviour
     private int firstMonCon;
     [SerializeField]
     private string firstNews;
+    [SerializeField] 
+    private GameObject firstCard;
 
     [Header("SecondChoiceConsequences(No)")]
     [SerializeField]
@@ -56,6 +60,9 @@ public class Card : MonoBehaviour
     private int secondMonCon;
     [SerializeField]
     private string secondNews;
+    [SerializeField] 
+    private GameObject secondCard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,11 +79,13 @@ public class Card : MonoBehaviour
             earthScript = GameObject.FindWithTag("DryEarth").GetComponent<RotateEarth>();
         }
 
+
+        deckScript = GameObject.FindWithTag("Deck").GetComponent<Deck>();
         worldScript = GameObject.FindWithTag("World").GetComponent<World>();
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         newsText = GameObject.FindWithTag("NewsText").GetComponent<TMP_Text>();
         Rect canvasRect = GameObject.FindWithTag("Canvas").GetComponent<RectTransform>().rect;
-        centerPosition = new Vector3(canvasRect.width / 2, canvasRect.height / 3, 0);
+        centerPosition = new Vector3(canvasRect.width / 5, canvasRect.height * 3 / 8, 0);
         SetName();
     }
 
@@ -117,7 +126,7 @@ public class Card : MonoBehaviour
         if (isMovingToCardPosition) return;
         if (earthScript.IsDragging()) return;
         if (isSelected) return;
-        transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+        transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
         //transform.position = cardPosition + new Vector3(0f, 90f, 0f);
         desiredCardPosition = cardPosition + new Vector3(0f, 90f, 0f);
         transform.SetSiblingIndex(10);
@@ -143,7 +152,7 @@ public class Card : MonoBehaviour
         if (isSelected == false)
         {
             if (handScript.numberOfSelectedCards > 0) return;
-            transform.localScale = new Vector3(2f, 2f, 2f);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             desiredCardPosition = centerPosition;
             //transform.position = cardPosition + new Vector3(0f, 225f, 0f);
             EnableButtons(true);
@@ -152,7 +161,7 @@ public class Card : MonoBehaviour
         }
         else
         {
-            transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
             //transform.position = cardPosition + new Vector3(0f, 90f, 0f);
             desiredCardPosition = cardPosition + new Vector3(0f, 90f, 0f);
             transform.SetSiblingIndex(cardHandPosition);
@@ -200,6 +209,7 @@ public class Card : MonoBehaviour
         handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
         PostNews(firstNews);
+        AddCardToTheDeck(secondCard);
     }
 
     public void MakeSecondChoice()
@@ -214,6 +224,7 @@ public class Card : MonoBehaviour
         handScript.numberOfSelectedCards--;
         handScript.DiscardCard(index);
         PostNews(secondNews);
+        AddCardToTheDeck(secondCard);
     }
 
     private void PostNews(string news)
@@ -246,7 +257,10 @@ public class Card : MonoBehaviour
 
         transform.position += moveVector.normalized * MoveSpeed * Time.unscaledDeltaTime;
         isMovingToCardPosition = true;
+    }
 
+    private void AddCardToTheDeck(GameObject card) {
+        deckScript.AddCard(card);
     }
 
 
