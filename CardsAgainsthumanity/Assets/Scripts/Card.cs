@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Vector3 = UnityEngine.Vector3;
 
 public class Card : MonoBehaviour
@@ -48,6 +49,8 @@ public class Card : MonoBehaviour
     private string firstNews;
     [SerializeField] 
     private GameObject firstCard;
+    [SerializeField] 
+    private UnityEvent firstFunction;
 
     [Header("SecondChoiceConsequences(No)")]
     [SerializeField]
@@ -62,6 +65,8 @@ public class Card : MonoBehaviour
     private string secondNews;
     [SerializeField] 
     private GameObject secondCard;
+    [SerializeField] 
+    private UnityEvent secondFunction;
 
     // Start is called before the first frame update
     void Start()
@@ -210,6 +215,7 @@ public class Card : MonoBehaviour
         handScript.DiscardCard(index);
         PostNews(firstNews);
         AddCardToTheDeck(secondCard);
+        CallOtherFunction(firstFunction);
     }
 
     public void MakeSecondChoice()
@@ -225,6 +231,7 @@ public class Card : MonoBehaviour
         handScript.DiscardCard(index);
         PostNews(secondNews);
         AddCardToTheDeck(secondCard);
+        CallOtherFunction(secondFunction);
     }
 
     private void PostNews(string news)
@@ -260,8 +267,12 @@ public class Card : MonoBehaviour
     }
 
     private void AddCardToTheDeck(GameObject card) {
+        if (card == null) return;
         deckScript.AddCard(card);
     }
 
-
+    private void CallOtherFunction(UnityEvent function) {
+        if (function == null) return;
+        function.Invoke();
+    }
 }

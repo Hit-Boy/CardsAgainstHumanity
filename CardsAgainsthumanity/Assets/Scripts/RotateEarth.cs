@@ -131,7 +131,7 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectChina()
+    public void CardEffectChina()
     {
         foreach (GameObject damChina in GameObject.FindGameObjectsWithTag("WaterPlant"))
         {
