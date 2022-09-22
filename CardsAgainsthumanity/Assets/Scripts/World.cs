@@ -7,8 +7,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
+using UnityEngine.SceneManagement;
 
-public class World : MonoBehaviour {
+
+public class World : MonoBehaviour
+{
     [SerializeField] private TMP_Text resourceText;
     [SerializeField] private TMP_Text expiredCardsText;
     [SerializeField] private TMP_Text looseText;
@@ -19,7 +22,7 @@ public class World : MonoBehaviour {
     [SerializeField] private SliderScript peopleBar;
     [SerializeField] private SliderScript energyBar;
     [SerializeField] private SliderScript moneyBar;
-    
+
     [SerializeField] private GameObject hand;
     [SerializeField]
     private int maxExpiredCards = 3;
@@ -30,8 +33,8 @@ public class World : MonoBehaviour {
 
     public bool isPaused = false;
     public int numberOfExpiredCards = 0;
-    
-    [Header("News texts and thresholds")] 
+
+    [Header("News texts and thresholds")]
     [SerializeField]
     private List<int> environmentThreshold;
     [SerializeField]
@@ -53,7 +56,7 @@ public class World : MonoBehaviour {
     private TMP_Text newsText;
     private string resourceTextValue;
     private string expiredCardsTextValue;
-    
+
     private int environment = 100;
     private int people = 50;
     private int energy = 50;
@@ -67,7 +70,8 @@ public class World : MonoBehaviour {
     private int envLowerBorder = 25;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
 
         newsText = GameObject.FindWithTag("NewsText").GetComponent<TMP_Text>();
         startingTime = Time.time + firstCardTime - cardCooldown;
@@ -78,8 +82,15 @@ public class World : MonoBehaviour {
         CheckAllThresholds();
     }
 
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("EndScreen");
+    }
+
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         CountWorldTime();
         CheckExpiredCards();
         CheckResources();
@@ -102,28 +113,38 @@ public class World : MonoBehaviour {
         }
     }
 
-    private void CountWorldTime() {
-        if ((Time.time - startingTime) / cardCooldown >= 1) {
+    private void CountWorldTime()
+    {
+        if ((Time.time - startingTime) / cardCooldown >= 1)
+        {
             handScript.DrawCard();
             startingTime = Time.time;
         }
     }
-    
-    public void UpdateResourceTextValue() {
+
+    public void UpdateResourceTextValue()
+    {
         resourceTextValue = "Env: " + environment + "  Peo: " + people + "  Ene: " + energy + "  Mon: " + money;
         resourceText.text = resourceTextValue;
     }
 
-    public void UpdateExpiredCardsNumber() {
+    public void UpdateExpiredCardsNumber()
+    {
         expiredCardsTextValue = numberOfExpiredCards + "/" + maxExpiredCards;
         expiredCardsText.text = expiredCardsTextValue;
     }
 
-    private void CheckExpiredCards() {
-        if (numberOfExpiredCards == maxExpiredCards) looseText.gameObject.SetActive(true);
+    private void CheckExpiredCards()
+    {
+        if (numberOfExpiredCards == maxExpiredCards)
+        {
+            looseText.gameObject.SetActive(true);
+            StartCoroutine(waiter());
         }
+    }
 
-    public void AddToResources(int env, int peo, int ene, int mon) {
+    public void AddToResources(int env, int peo, int ene, int mon)
+    {
         environment += env;
         people += peo;
         energy += ene;
@@ -133,39 +154,51 @@ public class World : MonoBehaviour {
         CheckAllThresholds();
     }
 
-    private void CheckResources() {
-        if (environment <= 0 || people <= 0 || energy <= 0 || money <= 0) looseText.gameObject.SetActive(true);
+    private void CheckResources()
+    {
+        if (environment <= 0 || people <= 0 || energy <= 0 || money <= 0)
+        {
+            looseText.gameObject.SetActive(true);
+            StartCoroutine(waiter());
+        }
     }
 
-    public void ActivateWinScreen() {
+    public void ActivateWinScreen()
+    {
         winText.gameObject.SetActive(true);
     }
-    
-    public void ChangePauseState() {
-        if (isPaused) {
+
+    public void ChangePauseState()
+    {
+        if (isPaused)
+        {
             Time.timeScale = 1;
             pauseText.text = "Pause";
         }
-        else {
+        else
+        {
             Time.timeScale = 0;
             pauseText.text = "Unpause";
         }
         isPaused = !isPaused;
     }
 
-    private void UpdateResourceBars() {
+    private void UpdateResourceBars()
+    {
         envBar.SetValue(environment);
         peopleBar.SetValue(people);
         energyBar.SetValue(energy);
         moneyBar.SetValue(money);
     }
-    
-    private void PostNews(string news) {
-        if(news == "") return;
+
+    private void PostNews(string news)
+    {
+        if (news == "") return;
         newsText.text = news + "\n" + newsText.text;
     }
 
-    private void CheckAllThresholds() {
+    private void CheckAllThresholds()
+    {
         CheckParticularThresholds(environmentThreshold, environmentNews);
         CheckParticularThresholds(peopleThreshold, peopleNews);
         CheckParticularThresholds(energyThreshold, energyNews);
@@ -173,9 +206,12 @@ public class World : MonoBehaviour {
     }
 
 
-    private void CheckParticularThresholds(List<int> thresholdList, List<string> newsList) {
-        for (int i = 0; i < thresholdList.Count; i++) {
-            if (environment <= thresholdList[i]) {
+    private void CheckParticularThresholds(List<int> thresholdList, List<string> newsList)
+    {
+        for (int i = 0; i < thresholdList.Count; i++)
+        {
+            if (environment <= thresholdList[i])
+            {
                 PostNews(newsList[i]);
                 newsList.RemoveAt(i);
                 thresholdList.RemoveAt(i);
