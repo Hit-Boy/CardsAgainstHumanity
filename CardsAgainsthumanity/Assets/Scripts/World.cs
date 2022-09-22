@@ -61,7 +61,11 @@ public class World : MonoBehaviour {
     private int time = 2022;
     private float startingTime;
     private float currentTime;
-    
+    private bool wetEarthActivated = false;
+    private bool dryEarthActivated = false;
+    private int envUpperBorder = 40;
+    private int envLowerBorder = 20;
+
     // Start is called before the first frame update
     void Start() {
 
@@ -79,6 +83,7 @@ public class World : MonoBehaviour {
         CountWorldTime();
         CheckExpiredCards();
         CheckResources();
+        CheckSwictEarthModel();
     }
 
     private void CountWorldTime() {
@@ -163,6 +168,34 @@ public class World : MonoBehaviour {
     }
 
 
+    void SwitchEarthModel(GameObject newEarthModel, string oldEarthModelTag)
+    {
+        GameObject oldEarth = GameObject.FindWithTag(oldEarthModelTag);
+        GameObject newEarth = Instantiate(newEarthModel, oldEarth.transform.position, oldEarth.transform.rotation);
+        for (int i = oldEarth.transform.childCount - 1; i >= 0; --i)
+        {
+            Transform child = oldEarth.transform.GetChild(i);
+            if (child.name.Contains("Mountains") || child.name.Contains("Land"))
+            {
+                continue;
+            }
+            child.SetParent(newEarth.transform, false);
+        }
+        Destroy(oldEarth);
+    }
 
+    void CheckSwictEarthModel()
+    {
+        if (!wetEarthActivated && environment < envUpperBorder && environment > envLowerBorder)
+        {
+            SwitchEarthModel((GameObject)Resources.Load("EarthWet", typeof(GameObject)), "Earth");
+            wetEarthActivated = true;
+        }
+        else if (!dryEarthActivated && environment < envLowerBorder)
+        {
+            SwitchEarthModel((GameObject)Resources.Load("EarthDry", typeof(GameObject)), "WetEarth");
+            dryEarthActivated = true;
+        }
+    }
 
 }

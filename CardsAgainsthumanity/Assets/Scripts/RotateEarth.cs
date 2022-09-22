@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ public class RotateEarth : MonoBehaviour
     [SerializeField]
     public int scrollSpeed = 5;
     [SerializeField]
-    public int minZoom = -40;
+    public int minZoom = -35;
     [SerializeField]
     public int maxZoom = 50;
 
@@ -39,26 +40,6 @@ public class RotateEarth : MonoBehaviour
 
     void Debug()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            SwitchEarthModel(wetEarth, "Earth");
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            SwitchEarthModel(dryEarth, "WetEarth");
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            SwitchEarthModel(wetEarth, "DryEarth");
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            SwitchEarthModel(normalEarth, "WetEarth");
-        }
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             CardEffectUs();
@@ -67,6 +48,26 @@ public class RotateEarth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             CardEffectAmazon();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            CardEffectChina();
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            CardEffectFarms();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            CardEffectItaly();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            CardEffectTurbine();
         }
     }
 
@@ -106,25 +107,6 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-
-
-
-    void SwitchEarthModel(GameObject newEarthModel, string oldEarthModelTag)
-    {
-        GameObject oldEarth = GameObject.FindWithTag(oldEarthModelTag);
-        GameObject newEarth = Instantiate(newEarthModel, oldEarth.transform.position, oldEarth.transform.rotation);
-        for (int i = oldEarth.transform.childCount - 1; i >= 0; --i)
-        {
-            Transform child = oldEarth.transform.GetChild(i);
-            if (child.name.Contains("Mountains") || child.name.Contains("Land"))
-            {
-                continue;
-            }
-            child.SetParent(newEarth.transform, false);
-        }
-        Destroy(oldEarth);
-    }
-
     void CardEffectAmazon()
     {
         foreach (GameObject amazonTree in GameObject.FindGameObjectsWithTag("TreeAmazon"))
@@ -151,7 +133,7 @@ public class RotateEarth : MonoBehaviour
 
     void CardEffectChina()
     {
-        foreach (GameObject damChina in GameObject.FindGameObjectsWithTag("DamChina"))
+        foreach (GameObject damChina in GameObject.FindGameObjectsWithTag("WaterPlant"))
         {
             for (int i = damChina.transform.childCount - 1; i >= 0; --i)
             {
@@ -161,38 +143,35 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectRandomNuclear()
-    {
-        foreach (GameObject nuclearPlant in GameObject.FindGameObjectsWithTag("RandomNuclear"))
-        {
-            for (int i = nuclearPlant.transform.childCount - 1; i >= 0; --i)
-            {
-                Transform child = nuclearPlant.transform.GetChild(i);
-                child.GetComponent<MeshRenderer>().enabled = true;
-            }
-        }
-    }
-
     void CardEffectFarms()
     {
-        foreach (GameObject farm in GameObject.FindGameObjectsWithTag("RandomFarm"))
+        foreach (GameObject farm in GameObject.FindGameObjectsWithTag("Farm"))
         {
             for (int i = farm.transform.childCount - 1; i >= 0; --i)
             {
                 Transform child = farm.transform.GetChild(i);
                 child.GetComponent<MeshRenderer>().enabled = true;
             }
+            farm.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 
     void CardEffectItaly()
     {
-        foreach (GameObject crane in GameObject.FindGameObjectsWithTag("ItalyCrane"))
+        foreach (GameObject crane in GameObject.FindGameObjectsWithTag("Crane"))
         {
             for (int i = crane.transform.childCount - 1; i >= 0; --i)
             {
                 Transform child = crane.transform.GetChild(i);
                 child.GetComponent<MeshRenderer>().enabled = true;
+                if (i == 0)
+                {
+                    for (int j = crane.transform.childCount - 1; j >= 0; --j)
+                    {
+                        Transform childd = child.transform.GetChild(j);
+                        childd.GetComponent<MeshRenderer>().enabled = true;
+                    }
+                }
             }
         }
     }

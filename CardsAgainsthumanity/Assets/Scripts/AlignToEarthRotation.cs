@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,22 +24,40 @@ public class AlignToEarthRotation : MonoBehaviour
                 }
                 break;
             case "Nuclear":
-                objectHeigt = 4.5f;
+                objectHeigt = 4.4f;
                 break;
             case "Rocket":
                 objectHeigt = 4;
                 break;
             case "WaterPlant":
                 objectHeigt = 4.8f;
+                for (int i = transform.childCount - 1; i >= 0; --i)
+                {
+                    Transform child = transform.GetChild(i);
+                    child.GetComponent<MeshRenderer>().enabled = false;
+                }
                 break;
             case "Crane":
-                objectHeigt = 5.2f;
+                objectHeigt = 4.3f;
+                for (int i = transform.childCount - 1; i >= 0; --i)
+                {
+                    Transform child = transform.GetChild(i);
+                    child.GetComponent<MeshRenderer>().enabled = false;
+                    if (i == 0)
+                    {
+                        for (int j = transform.childCount - 1; j >= 0; --j)
+                        {
+                            Transform childd = child.transform.GetChild(j);
+                            childd.GetComponent<MeshRenderer>().enabled = false;
+                        }
+                    }
+                }
                 break;
             case "Tree1":
                 objectHeigt = 4.5f;
                 break;
             case "House1":
-                objectHeigt = 4.6f;
+                objectHeigt = 4.4f;
                 break;
             case "TreeAmazon":
             case "Tree2":
@@ -46,6 +65,15 @@ public class AlignToEarthRotation : MonoBehaviour
                 break;
             case "City":
                 objectHeigt = 4;
+                break;
+            case "Farm":
+                objectHeigt = 4;
+                for (int i = transform.childCount - 1; i >= 0; --i)
+                {
+                    Transform child = transform.GetChild(i);
+                    child.GetComponent<MeshRenderer>().enabled = false;
+                }
+                GetComponent<MeshRenderer>().enabled = false;
                 break;
         }
 
@@ -58,5 +86,10 @@ public class AlignToEarthRotation : MonoBehaviour
 
         float dist = delta.magnitude - earthRadius - objectHeigt / 2;
         objectTransform.position -= objectTransform.up * dist;
+
+        if (tag != "Crane")
+        {
+            objectTransform.Rotate(0, Random.Range(0, 360), 0);
+        }
     }
 }
