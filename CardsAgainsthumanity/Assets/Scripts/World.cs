@@ -84,7 +84,11 @@ public class World : MonoBehaviour {
         CheckExpiredCards();
         CheckResources();
         CheckSwictEarthModel();
+        Debug();
+    }
 
+    void Debug()
+    {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             SwitchEarthModel((GameObject)Resources.Load("EarthWetV2", typeof(GameObject)), "Earth");

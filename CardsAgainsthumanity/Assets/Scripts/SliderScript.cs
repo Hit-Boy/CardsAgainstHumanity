@@ -16,8 +16,8 @@ public class SliderScript : MonoBehaviour {
     void Start()
     {
         
-        SetValue(50);
-        //slider.maxValue = 100;
+        //SetValue(50);
+        slider.maxValue = 100;
     }
 
     // Update is called once per frame

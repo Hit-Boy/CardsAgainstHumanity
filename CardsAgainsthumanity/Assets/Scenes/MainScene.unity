@@ -16938,6 +16938,34 @@ PrefabInstance:
       propertyPath: cardMoveSpeed
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 400113574}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CardEffectFarms
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RotateEarth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110094354153191, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_text
       value: More food
@@ -19606,6 +19634,34 @@ PrefabInstance:
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: secondPeoCon
       value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 400113574}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CardEffectItaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RotateEarth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5429110095126823322, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
@@ -29700,6 +29756,34 @@ PrefabInstance:
       propertyPath: secondPeoCon
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 400113574}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CardEffectChina
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RotateEarth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110094354153191, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_text
       value: We love China!
@@ -36608,8 +36692,7 @@ PrefabInstance:
       objectReference: {fileID: 1576228164}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: firstNews
-      value: 'France proposed to use its excess nuclear power plants, that were unused
-        after their shut down in June, 2020. '
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: timerText
@@ -36642,6 +36725,34 @@ PrefabInstance:
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: secondPeoCon
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 400113574}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CardEffectUs
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RotateEarth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094354153191, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_text
@@ -44999,6 +45110,34 @@ PrefabInstance:
       propertyPath: secondPeoCon
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 400113574}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CardEffectAmazon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RotateEarth, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110094354153191, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_text
       value: Alright
@@ -51358,9 +51497,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1419933857}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: firstNews
+      value: 'France proposed to use its excess nuclear power plants, that were unused
+        after their shut down in June, 2020. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: timerText
       value: 
       objectReference: {fileID: 1419933856}
+    - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: secondNews
+      value: 'France proposed to use its excess nuclear power plants, that were unused
+        after their shut down in June, 2020. '
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878622, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: firstEneCon
       value: 15
@@ -76243,7 +76392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094354153191, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_text
-      value: Everything for the people!
+      value: For the people!
       objectReference: {fileID: 0}
     - target: {fileID: 5429110095126823322, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
