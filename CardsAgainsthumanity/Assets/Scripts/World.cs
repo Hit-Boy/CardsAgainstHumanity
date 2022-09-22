@@ -54,7 +54,7 @@ public class World : MonoBehaviour {
     private string resourceTextValue;
     private string expiredCardsTextValue;
     
-    private int environment = 50;
+    private int environment = 100;
     private int people = 50;
     private int energy = 50;
     private int money = 50;
@@ -63,8 +63,8 @@ public class World : MonoBehaviour {
     private float currentTime;
     private bool wetEarthActivated = false;
     private bool dryEarthActivated = false;
-    private int envUpperBorder = 40;
-    private int envLowerBorder = 20;
+    private int envUpperBorder = 50;
+    private int envLowerBorder = 25;
 
     // Start is called before the first frame update
     void Start() {
@@ -193,7 +193,7 @@ public class World : MonoBehaviour {
         }
         else if (!dryEarthActivated && environment < envLowerBorder)
         {
-            SwitchEarthModel((GameObject)Resources.Load("EarthDry", typeof(GameObject)), "WetEarth");
+            SwitchEarthModel((GameObject)Resources.Load("EartDry", typeof(GameObject)), "WetEarth");
             dryEarthActivated = true;
         }
     }
