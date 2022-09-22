@@ -14,6 +14,20 @@ public class AlignToEarthRotation : MonoBehaviour
         {
             case "Turbine":
                 objectHeigt = 4;
+                for (int i = transform.childCount - 1; i >= 0; --i)
+                {
+                    Transform child = transform.GetChild(i);
+                    child.GetComponent<MeshRenderer>().enabled = false;
+                    if (i == 0)
+                    {
+                        for (int j = child.transform.childCount - 1; j >= 0; --j)
+                        {
+                            Transform childd = child.transform.GetChild(j);
+                            childd.GetComponent<MeshRenderer>().enabled = false;
+                        }
+                    }
+                }
+                GetComponent<MeshRenderer>().enabled = false;
                 break;
             case "NuclearUS":
                 objectHeigt = 4.5f;
@@ -90,6 +104,10 @@ public class AlignToEarthRotation : MonoBehaviour
         if (tag != "Crane")
         {
             objectTransform.Rotate(0, Random.Range(0, 360), 0);
+        }
+        if (tag == "Turbine")
+        {
+            objectTransform.Rotate(180,0, 0);
         }
     }
 }

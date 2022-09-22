@@ -176,8 +176,24 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectTurbine()
+    public void CardEffectTurbine()
     {
-
+        foreach (GameObject turbine in GameObject.FindGameObjectsWithTag("Turbine"))
+        {
+            for (int i = turbine.transform.childCount - 1; i >= 0; --i)
+            {
+                Transform child = turbine.transform.GetChild(i);
+                child.GetComponent<MeshRenderer>().enabled = true;
+                if (i == 0)
+                {
+                    for (int j = child.transform.childCount - 1; j >= 0; --j)
+                    {
+                        Transform childd = child.transform.GetChild(j);
+                        childd.GetComponent<MeshRenderer>().enabled = true;
+                    }
+                }
+            }
+            turbine.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 }

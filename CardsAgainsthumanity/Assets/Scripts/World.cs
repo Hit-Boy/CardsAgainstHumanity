@@ -57,7 +57,7 @@ public class World : MonoBehaviour
     private string resourceTextValue;
     private string expiredCardsTextValue;
 
-    private int environment = 100;
+    private int environment = 80;
     private int people = 50;
     private int energy = 50;
     private int money = 50;
