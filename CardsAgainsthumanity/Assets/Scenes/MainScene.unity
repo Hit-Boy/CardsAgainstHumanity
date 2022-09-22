@@ -13424,13 +13424,17 @@ PrefabInstance:
       value: "With more humans on the planet, experts are afraid there won\u2019t
         be enough food. Do you want to create more fields?  "
       objectReference: {fileID: 0}
+    - target: {fileID: 5429110094093204825, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
+      propertyPath: m_text
+      value: Food crisis
+      objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Name
       value: Food crysis
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878610, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5429110094353878611, guid: 3713b302c589f434a95ea1929d245c26, type: 3}
       propertyPath: m_Pivot.x
