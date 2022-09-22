@@ -84,6 +84,18 @@ public class World : MonoBehaviour {
         CheckExpiredCards();
         CheckResources();
         CheckSwictEarthModel();
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SwitchEarthModel((GameObject)Resources.Load("EarthWetV2", typeof(GameObject)), "Earth");
+            wetEarthActivated = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "WetEarth");
+            dryEarthActivated = true;
+        }
     }
 
     private void CountWorldTime() {
@@ -188,12 +200,12 @@ public class World : MonoBehaviour {
     {
         if (!wetEarthActivated && environment < envUpperBorder && environment > envLowerBorder)
         {
-            SwitchEarthModel((GameObject)Resources.Load("EarthWet", typeof(GameObject)), "Earth");
+            SwitchEarthModel((GameObject)Resources.Load("EarthWetV2", typeof(GameObject)), "Earth");
             wetEarthActivated = true;
         }
         else if (!dryEarthActivated && environment < envLowerBorder)
         {
-            SwitchEarthModel((GameObject)Resources.Load("EartDry", typeof(GameObject)), "WetEarth");
+            SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "WetEarth");
             dryEarthActivated = true;
         }
     }

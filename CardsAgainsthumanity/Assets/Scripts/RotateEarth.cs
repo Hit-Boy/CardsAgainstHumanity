@@ -107,7 +107,7 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectAmazon()
+    public void CardEffectAmazon()
     {
         foreach (GameObject amazonTree in GameObject.FindGameObjectsWithTag("TreeAmazon"))
         {
@@ -119,7 +119,7 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectUs()
+    public void CardEffectUs()
     {
         foreach (GameObject usPlant in GameObject.FindGameObjectsWithTag("NuclearUS"))
         {
@@ -131,7 +131,7 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectChina()
+    public void CardEffectChina()
     {
         foreach (GameObject damChina in GameObject.FindGameObjectsWithTag("WaterPlant"))
         {
@@ -143,7 +143,7 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectFarms()
+    public void CardEffectFarms()
     {
         foreach (GameObject farm in GameObject.FindGameObjectsWithTag("Farm"))
         {
@@ -156,7 +156,7 @@ public class RotateEarth : MonoBehaviour
         }
     }
 
-    void CardEffectItaly()
+    public void CardEffectItaly()
     {
         foreach (GameObject crane in GameObject.FindGameObjectsWithTag("Crane"))
         {
