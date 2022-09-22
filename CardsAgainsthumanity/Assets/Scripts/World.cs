@@ -108,6 +108,15 @@ public class World : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            Transform oldEarth = GameObject.FindGameObjectWithTag("WetEarth").transform;
+            for (int i = oldEarth.childCount - 1; i >= 0; --i)
+            {
+                GameObject child = oldEarth.GetChild(i).gameObject;
+                if (child.tag == "Tree1" || child.tag == "Tree2")
+                {
+                    Destroy(child);
+                }
+            }
             SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "WetEarth");
             dryEarthActivated = true;
         }
@@ -245,6 +254,15 @@ public class World : MonoBehaviour
         }
         else if (!dryEarthActivated && environment < envLowerBorder)
         {
+            Transform oldEarth = GameObject.FindGameObjectWithTag("WetEarth").transform;
+            for (int i = oldEarth.childCount - 1; i >= 0; --i)
+            {
+                GameObject child = oldEarth.GetChild(i).gameObject;
+                if (child.tag == "Tree1" || child.tag == "Tree2" || child.tag == "TreeAmazon")
+                {
+                    Destroy(child);
+                }
+            }
             SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "WetEarth");
             dryEarthActivated = true;
         }
