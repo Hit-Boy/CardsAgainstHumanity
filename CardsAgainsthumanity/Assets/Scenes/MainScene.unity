@@ -16123,9 +16123,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2800000, guid: a9d67ea77fcec6d4da1fcf126e64c334, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Texture2D, UnityEngine
-        m_MethodName: Apply
+      - m_Target: {fileID: 815151307}
+        m_TargetAssemblyTypeName: World, Assembly-CSharp
+        m_MethodName: ChangePauseState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
