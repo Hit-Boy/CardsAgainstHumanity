@@ -18,8 +18,10 @@ public class Hand : MonoBehaviour
     private Deck deckScript;
     private DiscardPile discardScript;
     public int numberOfSelectedCards = 0;
-    void Start() {
+    AudioSource soundEffect;
 
+    void Start() {
+        soundEffect = GetComponent<AudioSource>();
         handCards = new List<GameObject>();
         cardScripts = new List<Card>();
         canvas = GameObject.Find("Canvas");
@@ -40,6 +42,7 @@ public class Hand : MonoBehaviour
             return;
         }
 
+        soundEffect.Play();
         GameObject card = deckScript.deckCards[deckScript.deckCards.Count - 1];
         deckScript.deckCards.RemoveAt(deckScript.deckCards.Count - 1);
         AddCard(card);
