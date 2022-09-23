@@ -35,6 +35,7 @@ public class Card : MonoBehaviour
     private Vector3 desiredCardPosition;
     public int cardHandPosition;
     private Vector3 centerPosition;
+    AudioSource soundEffect;
 
     [Header("FirstChoiceConsequences(Yes)")]
     [SerializeField]
@@ -76,6 +77,7 @@ public class Card : MonoBehaviour
         worldScript = GameObject.FindWithTag("World").GetComponent<World>();
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         newsText = GameObject.FindWithTag("NewsText").GetComponent<TMP_Text>();
+        soundEffect = GetComponent<AudioSource>();
         Rect canvasRect = GameObject.FindWithTag("Canvas").GetComponent<RectTransform>().rect;
         centerPosition = new Vector3(canvasRect.width / 5, canvasRect.height * 3 / 8, 0);
         SetName();
@@ -193,6 +195,7 @@ public class Card : MonoBehaviour
         if (worldScript.isPaused) return;
         int index = -500;
         worldScript.AddToResources(firstEnvCon, firstPeoCon, firstEneCon, firstMonCon);
+        soundEffect.Play();
 
         for (int i = 0; i < handScript.handCards.Count; i++)
         {
@@ -210,6 +213,8 @@ public class Card : MonoBehaviour
         if (worldScript.isPaused) return;
         int index = -500;
         worldScript.AddToResources(secondEnvCon, secondPeoCon, secondEneCon, secondMonCon);
+        soundEffect.Play();
+
         for (int i = 0; i < handScript.handCards.Count; i++)
         {
             if (gameObject == handScript.handCards[i]) index = i;
