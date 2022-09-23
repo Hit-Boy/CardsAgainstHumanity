@@ -177,11 +177,10 @@ GameObject:
   - component: {fileID: 7206660670660447131}
   - component: {fileID: 6029449258790388798}
   - component: {fileID: 8378981664690368756}
-  - component: {fileID: 7172416505384860747}
   - component: {fileID: 7172416505384860746}
   m_Layer: 0
   m_Name: EarthDryV2
-  m_TagString: DryEarth
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,26 +252,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7172416505384860747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8018908854820458785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f26dec2f9fb038240be9b6f551dbbac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 5
-  mouseDragSpeed: 5
-  scrollSpeed: 5
-  minZoom: -35
-  maxZoom: 50
-  wetEarth: {fileID: 0}
-  dryEarth: {fileID: 0}
-  normalEarth: {fileID: 0}
 --- !u!114 &7172416505384860746
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -94,11 +94,10 @@ GameObject:
   - component: {fileID: 2453435677591401316}
   - component: {fileID: 1559231916544490689}
   - component: {fileID: 3622994594259863563}
-  - component: {fileID: 2704099051791846494}
   - component: {fileID: 2704099051791846493}
   m_Layer: 0
   m_Name: EarthWetV2
-  m_TagString: WetEarth
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,26 +169,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2704099051791846494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2974497894732311006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f26dec2f9fb038240be9b6f551dbbac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 5
-  mouseDragSpeed: 5
-  scrollSpeed: 5
-  minZoom: -35
-  maxZoom: 50
-  wetEarth: {fileID: 0}
-  dryEarth: {fileID: 0}
-  normalEarth: {fileID: 0}
 --- !u!114 &2704099051791846493
 MonoBehaviour:
   m_ObjectHideFlags: 0

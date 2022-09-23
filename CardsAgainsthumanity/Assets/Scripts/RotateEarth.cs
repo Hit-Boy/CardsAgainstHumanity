@@ -17,10 +17,6 @@ public class RotateEarth : MonoBehaviour
     [SerializeField]
     public int maxZoom = 50;
 
-    public GameObject wetEarth;
-    public GameObject dryEarth;
-    public GameObject normalEarth;
-
     private bool isDragging = false;
     private Hand handScript;
     Transform earthTf;
@@ -28,14 +24,23 @@ public class RotateEarth : MonoBehaviour
     void Start()
     {
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
-        earthTf = GetComponent<Transform>();
+        earthTf = GameObject.FindWithTag("Earth").GetComponent<Transform>();
     }
 
     void Update()
     {
+        CheckForModelSwitch();
         Dragging();
         Scrolling();
         Debug();
+    }
+
+    void CheckForModelSwitch()
+    {
+        if (earthTf == null)
+        {
+            earthTf = GameObject.FindWithTag("Earth").GetComponent<Transform>();
+        }
     }
 
     void Debug()

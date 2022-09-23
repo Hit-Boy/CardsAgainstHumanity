@@ -94,7 +94,7 @@ public class World : MonoBehaviour
         CountWorldTime();
         CheckExpiredCards();
         CheckResources();
-        CheckSwictEarthModel();
+        CheckSwictEarthModel();       
         Debug();
     }
 
@@ -108,7 +108,7 @@ public class World : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Transform oldEarth = GameObject.FindGameObjectWithTag("WetEarth").transform;
+            Transform oldEarth = GameObject.FindGameObjectWithTag("Earth").transform;
             for (int i = oldEarth.childCount - 1; i >= 0; --i)
             {
                 GameObject child = oldEarth.GetChild(i).gameObject;
@@ -117,7 +117,7 @@ public class World : MonoBehaviour
                     Destroy(child);
                 }
             }
-            SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "WetEarth");
+            SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "Earth");
             dryEarthActivated = true;
         }
     }
@@ -254,7 +254,7 @@ public class World : MonoBehaviour
         }
         else if (!dryEarthActivated && environment < envLowerBorder)
         {
-            Transform oldEarth = GameObject.FindGameObjectWithTag("WetEarth").transform;
+            Transform oldEarth = GameObject.FindGameObjectWithTag("Earth").transform;
             for (int i = oldEarth.childCount - 1; i >= 0; --i)
             {
                 GameObject child = oldEarth.GetChild(i).gameObject;
@@ -263,7 +263,7 @@ public class World : MonoBehaviour
                     Destroy(child);
                 }
             }
-            SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "WetEarth");
+            SwitchEarthModel((GameObject)Resources.Load("EarthDryV2", typeof(GameObject)), "Earth");
             dryEarthActivated = true;
         }
     }

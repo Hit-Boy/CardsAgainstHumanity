@@ -47,9 +47,9 @@ public class Card : MonoBehaviour
     private int firstMonCon;
     [SerializeField]
     private string firstNews;
-    [SerializeField] 
+    [SerializeField]
     private GameObject firstCard;
-    [SerializeField] 
+    [SerializeField]
     private UnityEvent firstFunction;
 
     [Header("SecondChoiceConsequences(No)")]
@@ -63,28 +63,15 @@ public class Card : MonoBehaviour
     private int secondMonCon;
     [SerializeField]
     private string secondNews;
-    [SerializeField] 
+    [SerializeField]
     private GameObject secondCard;
-    [SerializeField] 
+    [SerializeField]
     private UnityEvent secondFunction;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.FindWithTag("Earth") != null)
-        {
-            earthScript = GameObject.FindWithTag("Earth").GetComponent<RotateEarth>();
-        }
-        else if (GameObject.FindWithTag("WetEarth") != null)
-        {
-            earthScript = GameObject.FindWithTag("WetEarth").GetComponent<RotateEarth>();
-        }
-        else if (GameObject.FindWithTag("DryEarth") != null)
-        {
-            earthScript = GameObject.FindWithTag("DryEarth").GetComponent<RotateEarth>();
-        }
-
-
+        earthScript = GameObject.FindWithTag("World").GetComponent<RotateEarth>();
         deckScript = GameObject.FindWithTag("Deck").GetComponent<Deck>();
         worldScript = GameObject.FindWithTag("World").GetComponent<World>();
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
@@ -266,12 +253,14 @@ public class Card : MonoBehaviour
         isMovingToCardPosition = true;
     }
 
-    private void AddCardToTheDeck(GameObject card) {
+    private void AddCardToTheDeck(GameObject card)
+    {
         if (card == null) return;
         deckScript.AddCard(card);
     }
 
-    private void CallOtherFunction(UnityEvent function) {
+    private void CallOtherFunction(UnityEvent function)
+    {
         if (function == null) return;
         function.Invoke();
     }
