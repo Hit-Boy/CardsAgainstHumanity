@@ -20,11 +20,13 @@ public class RotateEarth : MonoBehaviour
     private bool isDragging = false;
     private Hand handScript;
     Transform earthTf;
+    AudioSource buildingSound;
 
     void Start()
     {
         handScript = GameObject.FindWithTag("Hand").GetComponent<Hand>();
         earthTf = GameObject.FindWithTag("Earth").GetComponent<Transform>();
+        buildingSound = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -114,6 +116,7 @@ public class RotateEarth : MonoBehaviour
 
     public void CardEffectAmazon()
     {
+        buildingSound.Play();
         foreach (GameObject amazonTree in GameObject.FindGameObjectsWithTag("TreeAmazon"))
         {
             for (int i = amazonTree.transform.childCount - 1; i >= 0; --i)
@@ -126,6 +129,7 @@ public class RotateEarth : MonoBehaviour
 
     public void CardEffectUs()
     {
+        buildingSound.Play();
         foreach (GameObject usPlant in GameObject.FindGameObjectsWithTag("NuclearUS"))
         {
             for (int i = usPlant.transform.childCount - 1; i >= 0; --i)
@@ -138,6 +142,7 @@ public class RotateEarth : MonoBehaviour
 
     public void CardEffectChina()
     {
+        buildingSound.Play();
         foreach (GameObject damChina in GameObject.FindGameObjectsWithTag("WaterPlant"))
         {
             for (int i = damChina.transform.childCount - 1; i >= 0; --i)
@@ -150,6 +155,7 @@ public class RotateEarth : MonoBehaviour
 
     public void CardEffectFarms()
     {
+        buildingSound.Play();
         foreach (GameObject farm in GameObject.FindGameObjectsWithTag("Farm"))
         {
             for (int i = farm.transform.childCount - 1; i >= 0; --i)
@@ -163,6 +169,7 @@ public class RotateEarth : MonoBehaviour
 
     public void CardEffectItaly()
     {
+        buildingSound.Play();
         foreach (GameObject crane in GameObject.FindGameObjectsWithTag("Crane"))
         {
             for (int i = crane.transform.childCount - 1; i >= 0; --i)
@@ -183,6 +190,7 @@ public class RotateEarth : MonoBehaviour
 
     public void CardEffectTurbine()
     {
+        buildingSound.Play();
         foreach (GameObject turbine in GameObject.FindGameObjectsWithTag("Turbine"))
         {
             for (int i = turbine.transform.childCount - 1; i >= 0; --i)

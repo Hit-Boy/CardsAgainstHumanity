@@ -91,11 +91,20 @@ public class World : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckExitGame();
         CountWorldTime();
         CheckExpiredCards();
         CheckResources();
         CheckSwictEarthModel();       
         Debug();
+    }
+
+    void CheckExitGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     void Debug()
